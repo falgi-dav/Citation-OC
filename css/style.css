@@ -1,0 +1,45 @@
+header{
+
+
+    padding: 1em 0;
+    border-top: 3px solid rgb(255, 141, 27);
+    border-bottom: 3px solid rgb(255, 141, 27);
+    background: grey;
+
+}
+header h1{
+
+color: white;
+text-align: center;
+
+}
+
+
+
+.card{
+
+    box-shadow: 5px 5px 5px grey;
+    height: auto;
+    margin-top: 20%;
+}
+
+.rounded-circle{
+
+
+    box-shadow: 5px 5px 5px;
+    height: 100px;
+    width: 100px;
+    margin: 30px;
+
+
+}
+.rounded-circle:hover{
+
+    transform: scale(1.04);
+	box-shadow: 0px 0px 70px -14px black;
+    opacity: 0.5;
+    transition: all 250ms ease;
+    cursor: pointer;
+
+
+}
