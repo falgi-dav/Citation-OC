@@ -141,13 +141,17 @@ function launcher(){
             element2 = document.getElementsByClassName("blockquote");
 
 
-            if(typeof(element2) != 'undefined' && element2 != null){
+            if(typeof(element2) != 'undefined' || element2 != null){
 
-                
-                $('.blockquote').remove();
-                console.log(element2);
+
+                var elementNew = document.querySelector("blockquote");
+
+                console.log(elementNew);
+                //$('.blockquote').remove();
+                elementNew.style.display = 'none';
+               //console.log(element2);
                
-            }
+            }else{}
 
         for (let pas = 0; pas <= repeat; pas++) {
                                        
