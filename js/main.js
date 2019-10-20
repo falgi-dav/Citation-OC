@@ -1,7 +1,8 @@
 
 //connexion firebase
 
-var test = [];
+
+let myArray = [];
 
   // connexion a la bdd
   var firebaseConfig = {
@@ -19,38 +20,71 @@ var test = [];
     // reference a la bdd firestore
     var db = firebase.firestore();
 
+function RequestArrayBDD(name){
 
-    var docRef = db.collection("arthur").doc("citation");
+    //var docRef = db.collection("arthur").doc("extraits");
 
     // recuperation des citations
-    db.collection("arthur").get().then(function(querySnapshot) {
+    db.collection(name).get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
             // doc.data() is never undefined for query doc snapshots
-            console.log(doc.data());
-
-            test = doc.data();
-
+           //console.log(doc.data());
             
+            myArray = doc.data();
+
+            console.log(myArray.extrait[Math.floor(Math.random()*myArray.extrait.length)]);
 
         });
     });
-    
-// recuperation de l collection
-    db.collection('arthur').where('citation', '==', 'arthurus')
-    .get()
-    .then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-            // doc.data() is never undefined for query doc snapshots
-            console.log(doc.data());
 
-          
-        });
-    })
-    .catch(function(error) {
-        console.log("Error getting documents: ", error);
-    });
+}
+   
+
+
+  // recuperation de l id cliqué
+  function lireID(that)
+  {
+      console.log(that.id);
+      selectionmenu = that.id;
+      RequestArrayBDD(selectionmenu); // execution de récuperation de l'array de la selection du personnage
+      //console.log(selectionmenu);
+
+  };
+
+  let element1 = null;
+
+  function Launcher(){
+
+    element = document.querySelector('#dede');
 
     
+    //console.log(element);    
+
+    if(element1 == undefined){
+
+        element1 = document.createElement("blockquote");
+
+    }else{
+
+        element1.remove();
+    }
+
+    
+    element1 = document.createElement("blockquote");
+        // ajoute le nœud texte au nouveau div créé
+    element.appendChild(element1);
+    element1.style.fontSize = '24px';
+    element1.style.fontStyle = 'italic';
+    element1.style.fontWeight = '300';
+    element1.innerHTML = myArray.extrait[Math.floor(Math.random()*myArray.extrait.length)];
+ 
+
+  }
+  
+
+  
+
+
 
 /***************************** partie manuelle****************************/
     
@@ -87,101 +121,13 @@ let citationgueteno = {
 
 }
 
-// recuperation de l id cliqué
-function lireID(that)
-{
-    console.log(that.id);
-    selectionmenu = that.id;
-    console.log(selectionmenu);
-};
-
-// varibale pour le nombre de citation
-var repeat = 2;
 
 
 // fonctione de lancement des citations
 
-function launcher(){
-
-    $('document').ready(function(){
 
 
-        if(selectionmenu != null){
-
-            switch (selectionmenu) {
-                case 'citationcarthur':
-               
-                  SelectChoice(citationcarthur); // si selection arthur                  
-    
-                  break;
-                case 'citationcaradoc':
-    
-                SelectChoice(citationcaradoc); // si selection caradoc
-    
-                  break;
-    
-                case 'citationgueteno':
-                  
-                SelectChoice(citationgueteno); // selectio, gueteno
-                
-                  break;
-            }
-
-        }else{
 
 
-            alert("Veuillez selectionner un personnage !");
 
-        }
-        
-        
-        function SelectChoice(cit){
-
-            element = document.getElementById("dede");
-            element2 = document.getElementsByClassName("blockquote");
-
-
-            if(typeof(element2) != 'undefined' || element2 != null){
-
-
-                var elementNew = document.querySelector("blockquote");
-
-                console.log(elementNew);
-                //$('.blockquote').remove();
-                elementNew.style.display = 'none';
-               //console.log(element2);
-               
-            }else{}
-
-        for (let pas = 0; pas <= repeat; pas++) {
-                                       
-            var randomItem = Math.floor(Math.random()*cit.citation.length); // random de citation
-            //$('.blockquote').html("\"" + cit.citation[randomItem] + "\"");
-
-            var para = document.createElement("blockquote");
-
-            var node = document.createTextNode(cit.citation[randomItem]);
-            para.classList.add("blockquote");
-            para.appendChild(node);     
-
-            
-            var element = document.getElementById("dede");
-            element.appendChild(para);
-
-            console.log(cit.citation[randomItem] + "ces celui la");
-            $('.blockquote-footer').html(cit.auteur);   
-              
-        }
-        
-        //lancement de l'audio
-        //var audio = new Audio(cit.audio[randomItem]);
-        //console.log(audio);
-        //audio.pause();
-        //audio.play();
-
-        }
-       
-    });
-
-}
 
