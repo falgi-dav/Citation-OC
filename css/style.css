@@ -25,6 +25,14 @@ text-align: center;
     margin-top: 20%;
 }
 
+.card-body{
+
+    min-height: 150px;
+    max-height: 150px;
+    overflow: auto;
+
+}
+
 .rounded-circle{
 
 

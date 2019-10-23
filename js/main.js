@@ -3,6 +3,7 @@
 
 
 let myArray = [];
+let Numbrepeat = 3;
 
   // connexion a la bdd
   var firebaseConfig = {
@@ -31,7 +32,7 @@ function RequestArrayBDD(name){
            //console.log(doc.data());
             
             myArray = doc.data();
-
+            console.log(myArray);
             console.log(myArray.extrait[Math.floor(Math.random()*myArray.extrait.length)]);
 
         });
@@ -46,6 +47,7 @@ function RequestArrayBDD(name){
   {
       console.log(that.id);
       selectionmenu = that.id;
+      
       RequestArrayBDD(selectionmenu); // execution de récuperation de l'array de la selection du personnage
       //console.log(selectionmenu);
 
@@ -55,11 +57,11 @@ function RequestArrayBDD(name){
 
   function Launcher(){
 
+
     element = document.querySelector('#dede');
-
+   
     
-    //console.log(element);    
-
+    //console.log(element); 
     if(element1 == undefined){
 
         element1 = document.createElement("blockquote");
@@ -67,21 +69,31 @@ function RequestArrayBDD(name){
     }else{
 
         element1.remove();
+        
     }
 
+
+    for (var i = 1; i <= Numbrepeat; i++) {
+
     
-    element1 = document.createElement("blockquote");
+        
+        element1 = document.createElement("blockquote");
         // ajoute le nœud texte au nouveau div créé
-    element.appendChild(element1);
-    element1.style.fontSize = '24px';
-    element1.style.fontStyle = 'italic';
-    element1.style.fontWeight = '300';
-    element1.innerHTML = myArray.extrait[Math.floor(Math.random()*myArray.extrait.length)];
- 
+        element.appendChild(element1);
+        element1.style.fontSize = '24px';
+        element1.style.fontStyle = 'italic';
+        element1.style.fontWeight = '300';
+        element1.style.color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+        
+        element1.innerHTML = i + '. ' + myArray.extrait[Math.floor(Math.random()*myArray.extrait.length)];
+        element1.style.animationDuration = '10s';
+        element1.style.animationName =  'slidein';
+
+    }
 
   }
-  
 
+ 
   
 
 
