@@ -73,9 +73,9 @@ function RequestArrayBDD(name){
     }
 
 
-    for (var i = 1; i <= Numbrepeat; i++) {
 
-    
+
+    for (var i = 1; i <= Numbrepeat; i++) {
         
         element1 = document.createElement("blockquote");
         // ajoute le nœud texte au nouveau div créé
@@ -86,8 +86,7 @@ function RequestArrayBDD(name){
         element1.style.color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
         
         element1.innerHTML = i + '. ' + myArray.extrait[Math.floor(Math.random()*myArray.extrait.length)];
-        element1.style.animationDuration = '10s';
-        element1.style.animationName =  'slidein';
+       
 
     }
 
