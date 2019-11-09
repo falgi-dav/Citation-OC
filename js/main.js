@@ -44,6 +44,7 @@ function RequestArrayBDD(name){
       nameAutor = document.createElement('p');
       let titleCit = document.querySelector('#titleFooter');
       titleCit.style.fontSize = "24px";
+      
       titleCit.innerHTML = that.id;
       titleCit.appendChild = nameAutor;
             
@@ -76,7 +77,8 @@ function RequestArrayBDD(name){
         element1.style.color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);        
         element1.innerHTML = i + '. ' + myArray.extrait[Math.floor(Math.random()*myArray.extrait.length)];
         //scroll vers les 3 phrases crees
-        element1.scrollIntoView(true);      
+        element1.scrollIntoView(true);
+           
 
     }
   }

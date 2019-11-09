@@ -1,19 +1,19 @@
 html { 
     height: 100%;
+    scroll-behavior: smooth;
  }
 
  body{
 
-    min-height: 100%;
+    min-height: 100vh;
  }
 
 header{
 
-
     padding: 1em 0;
     border-top: 3px solid rgb(255, 141, 27);
-    border-bottom: 3px solid rgb(255, 141, 27);
-    background: grey;
+    box-shadow: 5px 5px 5px grey;
+    background:#343a40;
 
 }
 header h1{
@@ -22,16 +22,13 @@ color: white;
 text-align: center;
 
 }
-
-
-
 .card{
 
     box-shadow: 5px 5px 5px grey;
+    
     height: auto;
     margin-top: 20%;
 }
-
 .card-body{
 
     min-height: 150px;
@@ -39,7 +36,11 @@ text-align: center;
     overflow: auto;
 
 }
+#btnRepeat{
 
+    text-transform: uppercase;
+
+}
 .rounded-circle{
 
 
@@ -61,8 +62,9 @@ text-align: center;
 
 }
 
-footer{
+#sticky-footer{
 
+    border-top: 3px solid rgb(255, 141, 27);
     position: relative;
     bottom: 0;
     left: 0;
