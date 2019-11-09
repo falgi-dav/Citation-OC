@@ -40,16 +40,16 @@
                         <div class="card-header">
 
                             <div class="row">
-                                <footer class="blockquote-footer col-md-6">nom de l'auteur <cite title="SourceTitle">Citation en attente</cite></footer>
-                                    <div class="col-md-6 text-right">
-                                        <button class="btn btn-outline-info">Options</button>
+                                <footer class="blockquote-footer col-md-6" id="titleFooter">nom de l'auteur <cite title="SourceTitle">Citation en attente</cite></footer>
+                                    <div class="col-md-6 text-right" id="blockAdmin">
+                                        <button class="btn btn-outline-info" onclick="OpenBoxNumber()">Options</button>
                                         <button class="btn btn-outline-info">Admin</button>
                                     </div>
                             </div>
                         </div>
                         
                     <div class="card-body" id="dede"></div>
-                        <a href="#" class="btn btn-light" onclick="Launcher()">générer</a>
+                        <a href="#" class="btn btn-light" onclick="Launcher()" id="btnRepeat">générer</a>
                     </div>
                 </div>
 
@@ -95,19 +95,9 @@
                     <img src="./images/ar.jpg" alt="..." class="rounded-circle" id="arthur" onclick="lireID(this)">
                     <img src="./images/karadoc.jpg" alt="..." class="rounded-circle" id="caradoc" onclick="lireID(this)">
                     <img src="./images/perceval.jpg" alt="..." class="rounded-circle" id="perceval" onclick="lireID(this)">
-                    
-
-
             </div>
 
-
-
         </div>
-
-
-        
-
-
 
         <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
             <div class="container text-center">
@@ -115,7 +105,5 @@
             </div>
         </footer>
 
-
-        
     </body>
 </html>

@@ -1,4 +1,11 @@
-html { min-height: 100%; }
+html { 
+    height: 100%;
+ }
+
+ body{
+
+    min-height: 100%;
+ }
 
 header{
 
@@ -51,5 +58,14 @@ text-align: center;
     transition: all 250ms ease;
     cursor: pointer;
 
+
+}
+
+footer{
+
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
 
 }

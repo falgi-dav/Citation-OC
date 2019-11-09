@@ -1,12 +1,11 @@
 
-//connexion firebase
-
-
+// variables globales
 let myArray = [];
-let Numbrepeat = 3;
+let Numbrepeat = 1;
+let element1 = null;
 
   // connexion a la bdd
-  var firebaseConfig = {
+  const firebaseConfig = {
     apiKey: "AIzaSyDlQqhKqC6WCFsYDtGgUvZIZiqNqdC1h1A",
     authDomain: "citationkamelott.firebaseapp.com",
     databaseURL: "https://citationkamelott.firebaseio.com",
@@ -15,6 +14,7 @@ let Numbrepeat = 3;
     messagingSenderId: "966636207842",
     appId: "1:966636207842:web:e75c7c99574f71d656a8bb"
  } ;
+
   // Initialisation firebase
   firebase.initializeApp(firebaseConfig);
 
@@ -24,56 +24,45 @@ let Numbrepeat = 3;
 function RequestArrayBDD(name){
 
     //var docRef = db.collection("arthur").doc("extraits");
-
     // recuperation des citations
     db.collection(name).get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
-            // doc.data() is never undefined for query doc snapshots
-           //console.log(doc.data());
-            
+            // doc.data()
+           //console.log(doc.data());            
             myArray = doc.data();
             console.log(myArray);
             console.log(myArray.extrait[Math.floor(Math.random()*myArray.extrait.length)]);
-
         });
     });
-
-}
-   
-
+}   
 
   // recuperation de l id cliqué
   function lireID(that)
   {
       console.log(that.id);
       selectionmenu = that.id;
-      
+      nameAutor = document.createElement('p');
+      let titleCit = document.querySelector('#titleFooter');
+      titleCit.style.fontSize = "24px";
+      titleCit.innerHTML = that.id;
+      titleCit.appendChild = nameAutor;
+            
       RequestArrayBDD(selectionmenu); // execution de récuperation de l'array de la selection du personnage
-      //console.log(selectionmenu);
+      //console.log(selectionmenu); 
+  }
 
-  };
-
-  let element1 = null;
-
+  
   function Launcher(){
-
-
-    element = document.querySelector('#dede');
-   
+    element = document.querySelector('#dede');   
     
     //console.log(element); 
     if(element1 == undefined){
-
         element1 = document.createElement("blockquote");
-
     }else{
 
-        element1.remove();
-        
+        element1 = document.querySelector('blockquote');
+        element1.remove();        
     }
-
-
-
 
     for (var i = 1; i <= Numbrepeat; i++) {
         
@@ -83,62 +72,49 @@ function RequestArrayBDD(name){
         element1.style.fontSize = '24px';
         element1.style.fontStyle = 'italic';
         element1.style.fontWeight = '300';
-        element1.style.color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
-        
+        // couleur des phrases aleatoire
+        element1.style.color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);        
         element1.innerHTML = i + '. ' + myArray.extrait[Math.floor(Math.random()*myArray.extrait.length)];
-       
+        //scroll vers les 3 phrases crees
+        element1.scrollIntoView(true);      
 
     }
+  }
+
+  // selection du nombre de citation
+  function OpenBoxNumber(){
+
+        let elemOption = document.querySelector('#blockAdmin');
+        console.log(elemOption);
+        let inputOption = document.createElement('input');
+        inputOption.style.width = "50px";
+        inputOption.style.textAlign = "center";
+        inputOption.style.border = "none";
+        inputOption.type = "number";
+        inputOption.id = "inputAdd";
+        
+        inputOption.max = "3";
+        inputOption.min = "1";
+        inputOption.value = "1";
+        elemOption.appendChild(inputOption);
+       
+
+        //recuperation de la saisie du formulaire
+        var elemNumber = document.getElementById('inputAdd');
+        // ecoute des changements du nombre de citations
+        elemNumber.addEventListener("click", function(){Numbrepeat = elemNumber.value}, false);            
+        
+        //console.log(elemNumber);
+        //console.log(Numbrepeat);
 
   }
 
+  function RandomAll(){
+
+
+
+
+  }
  
   
-
-
-
-/***************************** partie manuelle****************************/
-    
-
-var selectionmenu = null;
-
-
-// object de la citation
-var citationcaradoc = {
-
-    auteur : "Karadoc",
-    citation : ["KARA1", "kara2", "kara3"],
-    interlocuteur: "Arthur",
-    audio : []
-
-}
-
-let citationcarthur = {
-
-    auteur : "Arthur",
-    citation : ["Nouvelle technique : on passe pour des cons, les autres se marrent, et on frappe. C'est nouveau.",
-" Pourquoi il me tutoie à chaque fois, ce con? On a pas gardé les chèvres ensemble, que je sache!", "C'est pas terrible, c'est nul, nul, archi-nul, vous êtes des zéros.",
-"Je suis chef de guerre, moi. Je suis pas là pour secouer des drapeaux et jouer de la trompette."],
-    interlocuteur: "Karadoc",
-    audio: ["./mp3/A-titre-purement-informatif.mp3","./mp3/ah_bah_ouais_mais_apres_il_faut_un_peu_de_technique.mp3","",""]
-
-}
-
-let citationgueteno = {
-
-    auteur : "Gueteno",
-    citation : ["gu1","gue2","gue3"],
-    interlocuteur: "Gueteno"
-
-}
-
-
-
-// fonctione de lancement des citations
-
-
-
-
-
-
 
