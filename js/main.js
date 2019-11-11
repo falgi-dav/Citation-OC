@@ -4,6 +4,7 @@ let myArray = [];
 let Numbrepeat = 1;
 let element1 = null;
 let inputOption = null;
+let selectionmenu = null;
 
   // connexion a la bdd
   const firebaseConfig = {
@@ -37,11 +38,14 @@ function RequestArrayBDD(name){
     });
 }   
 
-  // recuperation de l id cliqué
+  // recuperation de l id cliquer
   function lireID(that)
   {
       console.log(that.id);
       selectionmenu = that.id;
+
+      
+
       nameAutor = document.createElement('p');
       let titleCit = document.querySelector('#titleFooter');
       titleCit.style.fontSize = "24px";
@@ -55,8 +59,9 @@ function RequestArrayBDD(name){
 
   
   function Launcher(){
-    element = document.querySelector('#dede');   
-    
+    element = document.querySelector('#dede');  
+     
+   
     //console.log(element); 
     if(element1 == undefined){
         element1 = document.createElement("blockquote");
