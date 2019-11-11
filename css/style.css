@@ -5,7 +5,13 @@ html {
 
  body{
 
-    min-height: 100vh;
+    height: 100%;
+    min-height: 35rem;
+    
+    background-image: url(../images/kam.jpg);
+    background-size: cover;
+    font-family: 'Source Sans Pro';
+    font-weight: 300;
  }
 
 header{
@@ -27,7 +33,7 @@ text-align: center;
     box-shadow: 5px 5px 5px grey;
     
     height: auto;
-    margin-top: 20%;
+    margin-top: 20px;
 }
 .card-body{
 
@@ -41,33 +47,87 @@ text-align: center;
     text-transform: uppercase;
 
 }
-.rounded-circle{
-
-
+#overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color:#cd9557;
+    opacity: .7;
+    z-index: 1;
+  
+  }
+  
+  
+  .blockInfo{
+  
+    z-index: 3;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    
+    margin-top: 30%;
+  
+  
+  
+  }
+  .blockInfo p, h1{
+    color:white;
+  }
+  
+  #blockHeader{
+  
+    background-color: #303470;
+  
+  }
+  
+  #separateur{
+  
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  
+  
+  
+  }
+  #separateur-bg{
+  
+    width: 100%;
+    height: 100%;
+    background-color: rgba(55, 55, 84, 0.811);
+    transform: skewX(-6deg);
+    transform-origin: top right;
+    z-index: 2;
+  
+  }
+  
+  .rounded-circle{
+  
+  
     box-shadow: 5px 5px 5px;
     height: 100px;
     width: 100px;
     margin: 30px;
-
-
-}
-.rounded-circle:hover{
-
+  
+  
+  }
+  .rounded-circle:hover{
+  
     transform: scale(1.04);
-	box-shadow: 0px 0px 70px -14px black;
+  box-shadow: 0px 0px 70px -14px black;
     opacity: 0.5;
     transition: all 250ms ease;
     cursor: pointer;
+  
+  
+  }
+  
+  #adminBar{
 
-
-}
-
-#sticky-footer{
-
-    border-top: 3px solid rgb(255, 141, 27);
-    position: relative;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
-}
+  text-align: left;
+  z-index: 5;
+  text-align: center;
+  margin-top: 20px;
+  
+  }

@@ -3,6 +3,7 @@
 let myArray = [];
 let Numbrepeat = 1;
 let element1 = null;
+let inputOption = null;
 
   // connexion a la bdd
   const firebaseConfig = {
@@ -72,6 +73,8 @@ function RequestArrayBDD(name){
         element.appendChild(element1);
         element1.style.fontSize = '24px';
         element1.style.fontStyle = 'italic';
+        element1.style.width = '80%';
+        element1.style.margin = '0 auto';
         element1.style.fontWeight = '300';
         // couleur des phrases aleatoire
         element1.style.color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);        
@@ -88,7 +91,16 @@ function RequestArrayBDD(name){
 
         let elemOption = document.querySelector('#blockAdmin');
         console.log(elemOption);
-        let inputOption = document.createElement('input');
+
+        if(element1 == undefined){
+            element1 = document.createElement("input");
+        }else{
+    
+            element1 = document.querySelector('input');
+            element1.remove();        
+        }
+
+        inputOption = document.createElement('input');
         inputOption.style.width = "50px";
         inputOption.style.textAlign = "center";
         inputOption.style.border = "none";
