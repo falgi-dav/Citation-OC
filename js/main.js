@@ -41,26 +41,21 @@ function RequestArrayBDD(name){
   // recuperation de l id cliquer
   function lireID(that)
   {
-      console.log(that.id);
-      selectionmenu = that.id;
-
       
+      selectionmenu = that.id;      
 
       nameAutor = document.createElement('p');
       let titleCit = document.querySelector('#titleFooter');
-      titleCit.style.fontSize = "24px";
-      
+      titleCit.style.fontSize = "24px";      
       titleCit.innerHTML = that.id;
-      titleCit.appendChild = nameAutor;
-            
+      titleCit.appendChild = nameAutor;            
       RequestArrayBDD(selectionmenu); // execution de récuperation de l'array de la selection du personnage
-      //console.log(selectionmenu); 
+      
   }
 
   
   function Launcher(){
-    element = document.querySelector('#dede');  
-     
+    element = document.querySelector('#cardBody');     
    
     //console.log(element); 
     if(element1 == undefined){
@@ -76,17 +71,12 @@ function RequestArrayBDD(name){
         element1 = document.createElement("blockquote");
         // ajoute le nœud texte au nouveau div créé
         element.appendChild(element1);
-        element1.style.fontSize = '24px';
-        element1.style.fontStyle = 'italic';
-        element1.style.width = '80%';
-        element1.style.margin = '0 auto';
-        element1.style.fontWeight = '300';
+        element1.classList.add('blockCitation');
         // couleur des phrases aleatoire
         element1.style.color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);        
         element1.innerHTML = i + '. ' + myArray.extrait[Math.floor(Math.random()*myArray.extrait.length)];
         //scroll vers les 3 phrases crees
-        element1.scrollIntoView(true);
-           
+        element1.scrollIntoView(true);           
 
     }
   }
@@ -95,8 +85,7 @@ function RequestArrayBDD(name){
   function OpenBoxNumber(){
 
         let elemOption = document.querySelector('#blockAdmin');
-        console.log(elemOption);
-
+       
         if(element1 == undefined){
             element1 = document.createElement("input");
         }else{
@@ -115,25 +104,16 @@ function RequestArrayBDD(name){
         inputOption.max = "3";
         inputOption.min = "1";
         inputOption.value = "1";
-        elemOption.appendChild(inputOption);
-       
+        elemOption.appendChild(inputOption);       
 
         //recuperation de la saisie du formulaire
         var elemNumber = document.getElementById('inputAdd');
         // ecoute des changements du nombre de citations
-        elemNumber.addEventListener("click", function(){Numbrepeat = elemNumber.value}, false);            
+        elemNumber.addEventListener("click", function(){Numbrepeat = elemNumber.value}, false);        
         
-        //console.log(elemNumber);
-        //console.log(Numbrepeat);
 
   }
 
-  function RandomAll(){
-
-
-
-
-  }
  
   
 
