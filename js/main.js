@@ -39,18 +39,17 @@ function RequestArrayBDD(name){
 }   
 
   // recuperation de l id cliquer
-  function lireID(that)
+  function readID(that)
   {
       
-      selectionmenu = that.id;      
-
+      selectionmenu = that.id;
       nameAutor = document.createElement('p');
       let titleCit = document.querySelector('#titleFooter');
       titleCit.style.fontSize = "24px";      
       titleCit.innerHTML = that.id;
       titleCit.appendChild = nameAutor;            
       RequestArrayBDD(selectionmenu); // execution de récuperation de l'array de la selection du personnage
-      
+
   }
 
   
