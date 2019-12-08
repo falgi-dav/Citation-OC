@@ -33,7 +33,7 @@ function RequestArrayBDD(name){
            //console.log(doc.data());            
             myArray = doc.data();
             console.log(myArray);
-            console.log(myArray.extrait[Math.floor(Math.random()*myArray.extrait.length)]);
+            //console.log(myArray.extrait[Math.floor(Math.random()*myArray.extrait.length)]);
         });
     });
 }   
