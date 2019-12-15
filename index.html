@@ -1,68 +1,76 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" type="text/css" href="./css/style.css" media="all" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-firestore.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
-		
-		
-		
-		
-		<script src="./js/main.js"></script> 
-        <title>Citations</title>
-    </head>
 
-    <body>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" media="all" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
 
-        <div id="overlay"></div>
-        
-        <div class="content">
-        
-            <div id="separateur">
-                <div id="separateur-bg"  class="col-md-6">
-                
-                    <div class="blockInfo">
-                
-                        <div id="blockHeader">
-                    
-                            <h1>Citation OC</h1>
-                            <p>Ceci est une réalisation pour le tp3 d'openclassrooms</p>
-                    
-                        </div>
-                    
-                            <div class="card" id="arthur">
-                                <div class="card-header">        
-                                    <div class="row">
-                                        <footer class="blockquote-footer col-md-6" id="titleFooter">nom de l'auteur <cite title="SourceTitle">Citation en attente</cite></footer>
-                                            <div class="col-md-6 text-right" id="blockAdmin">
-                                                <button class="btn btn-outline-info" onclick="OpenBoxNumber()">Options</button>
-                                                
-                                            </div>
-                                    </div>
-                                </div>                        
-                                    <div class="card-body" id="cardBody"></div>
-                                        <a href="#" class="btn btn-light" onclick="Launcher()" id="btnRepeat">génerer</a>
-                                    
+
+
+
+    <script src="./js/main.js"></script>
+    <title>Citations</title>
+</head>
+
+<body>
+
+    <div id="overlay"></div>
+
+    <div class="content">
+
+        <div id="separateur">
+            <div id="separateur-bg" class="col-md-6">
+
+                <div class="blockInfo">
+
+                    <div id="blockHeader">
+
+                        <h1>Citation OC</h1>
+                        <p>Ceci est une réalisation pour le tp3 d'openclassrooms</p>
+
+                    </div>
+
+                    <div class="card" id="arthur">
+                        <div class="card-header">
+                            <div class="row">
+                                <footer class="blockquote-footer col-md-6" id="titleFooter">nom de l'auteur
+                                    <cite title="SourceTitle">Citation en attente</cite>
+                                </footer>
+                                <div class="col-md-6 text-right" id="blockAdmin">
+                                    <button class="btn btn-outline-info" onclick="OpenBoxNumber()">Options</button>
+
                                 </div>
-
-                                <div id="adminBar">
-        
-                                        <img src="./images/ar.jpg" alt="..." class="rounded-circle" id="arthur" onclick="readID(this)">
-                                        <img src="./images/karadoc.jpg" alt="..." class="rounded-circle" id="caradoc" onclick="readID(this)">
-                                        <img src="./images/perceval.jpg" alt="..." class="rounded-circle" id="perceval" onclick="readID(this)">
-                                    </div>
                             </div>
-                    </div>                   
+                        </div>
+                        <div class="card-body" id="cardBody"></div>
+                        <a href="#" class="btn btn-light" onclick="Launcher()" id="btnRepeat">génerer</a>
+
+                    </div>
+
+                    <div id="adminBar">
+
+                        <img src="./images/ar.jpg" alt="..." class="rounded-circle" id="arthur" onclick="readID(this)">
+                        <img src="./images/karadoc.jpg" alt="..." class="rounded-circle" id="caradoc" onclick="readID(this)">
+                        <img src="./images/perceval.jpg" alt="..." class="rounded-circle" id="perceval" onclick="readID(this)">
+                    </div>
                 </div>
             </div>
         </div>
-        
-    </body>
+    </div>
+    </div>
+
+</body>
+
 </html>
