@@ -5,6 +5,13 @@ let Numbrepeat = 1;
 let element1 = null;
 let inputOption = null;
 let selectionmenu = null;
+// partie du code pour la fonction de melanfe
+let startArray = ['avec', 'tant que durera','considérant','quelle que','vu'];
+let middleArray = ['la situation','l\inertie','l\impasse'];
+let endArray = ['il faut étudier','on se doit d\'examiner','il faut partir de toute urgence'];
+
+
+
 
   // connexion a la bdd
   const firebaseConfig = {
@@ -65,18 +72,27 @@ function RequestArrayBDD(name){
         element1.remove();        
     }
 
-    for (var i = 1; i <= Numbrepeat; i++) {
-        
-        element1 = document.createElement("blockquote");
-        // ajoute le nœud texte au nouveau div créé
-        element.appendChild(element1);
-        element1.classList.add('blockCitation');
-        // couleur des phrases aleatoire
-        element1.style.color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);        
-        element1.innerHTML = i + '. ' + myArray.extrait[Math.floor(Math.random()*myArray.extrait.length)];
-        //scroll vers les 3 phrases crees
-        element1.scrollIntoView(true);           
+    if(document.getElementById('checkForm').checked == true){
 
+        // lancement du melange
+        RandomChoice(Numbrepeat);
+        
+    }else{
+
+
+        for (var i = 1; i <= Numbrepeat; i++) {
+            
+            element1 = document.createElement("blockquote");
+            // ajoute le nœud texte au nouveau div créé
+            element.appendChild(element1);
+            element1.classList.add('blockCitation');
+            // couleur des phrases aleatoire
+            ColorChange();
+            element1.innerHTML = i + '. ' + myArray.extrait[Math.floor(Math.random()*myArray.extrait.length)];
+            //scroll vers les 3 phrases crees
+            element1.scrollIntoView(true);           
+
+        }
     }
   }
 
@@ -84,22 +100,19 @@ function RequestArrayBDD(name){
   function OpenBoxNumber(){
 
         let elemOption = document.querySelector('#blockAdmin');
+        let element1 = document.getElementById('inputAdd');
        
         if(element1 == undefined){
             element1 = document.createElement("input");
         }else{
     
-            element1 = document.querySelector('input');
+            element1 = document.getElementById('inputAdd');
             element1.remove();        
         }
 
-        inputOption = document.createElement('input');
-        inputOption.style.width = "50px";
-        inputOption.style.textAlign = "center";
-        inputOption.style.border = "none";
+        inputOption = document.createElement('input');        
         inputOption.type = "number";
-        inputOption.id = "inputAdd";
-        
+        inputOption.id = "inputAdd";        
         inputOption.max = "3";
         inputOption.min = "1";
         inputOption.value = "1";
@@ -112,6 +125,35 @@ function RequestArrayBDD(name){
         
 
   }
+
+// changement de la couleur du texte
+  function ColorChange(){
+    element1.style.color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);   
+  }
+
+// pour le mide random style pipotron
+  function RandomChoice(numberRepeat){
+
+    for (var i = 1; i <= numberRepeat; i++) {
+
+        let rand1 = startArray[Math.floor(Math.random()*startArray.length)];
+        let rand2 = middleArray[Math.floor(Math.random()*middleArray.length)];
+        let rand3 = endArray[Math.floor(Math.random()*endArray.length)];
+        
+        element1 = document.createElement("blockquote");
+        // ajoute le nœud texte au nouveau div créé
+        element.appendChild(element1);
+        element1.classList.add('blockCitation');
+      
+        element1.innerHTML = i + '. ' + rand1 + ' ' + rand2 + ' ' + rand3; 
+        element1.scrollIntoView(true);            
+        console.log(i + '. ' + rand1 + ' ' + rand2 + ' ' + rand3);
+        
+    }
+  }
+
+
+
 
  
   
