@@ -5,7 +5,10 @@ let Numbrepeat = 1;
 let element1 = null;
 let inputOption = null;
 let selectionmenu = null;
-// partie du code pour la fonction de melanfe
+
+
+
+// partie du code pour la fonction de melange uniquement
 let startArray = ['avec', 'tant que durera','considérant','quelle que','vu'];
 let middleArray = ['la situation','l\inertie','l\impasse'];
 let endArray = ['il faut étudier','on se doit d\'examiner','il faut partir de toute urgence'];
@@ -63,7 +66,6 @@ function RequestArrayBDD(name){
   function Launcher(){
     element = document.querySelector('#cardBody');     
    
-    //console.log(element); 
     if(element1 == undefined){
         element1 = document.createElement("blockquote");
     }else{
@@ -79,14 +81,13 @@ function RequestArrayBDD(name){
         
     }else{
 
-
+        
         for (var i = 1; i <= Numbrepeat; i++) {
             
             element1 = document.createElement("blockquote");
-            // ajoute le nœud texte au nouveau div créé
             element.appendChild(element1);
             element1.classList.add('blockCitation');
-            // couleur des phrases aleatoire
+            // couleur des phrases aleatoire fonction
             ColorChange();
             element1.innerHTML = i + '. ' + myArray.extrait[Math.floor(Math.random()*myArray.extrait.length)];
             //scroll vers les 3 phrases crees
@@ -131,7 +132,7 @@ function RequestArrayBDD(name){
     element1.style.color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);   
   }
 
-// pour le mide random style pipotron
+// pour le mise random style pipotron
   function RandomChoice(numberRepeat){
 
     for (var i = 1; i <= numberRepeat; i++) {
