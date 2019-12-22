@@ -49,14 +49,21 @@
                                     <cite title="SourceTitle">Citation en attente</cite>
                                 </footer>
                                 <div class="col-md-6 text-right" id="blockAdmin">
-                                    <label class="form-check-label"><input type="checkbox" id="checkForm" value="">Mélanger </label>
-                                    <button class="btn btn-outline-info" onclick="OpenBoxNumber()">Options</button>
+                                    <label class="form-check-label">
+                                        <input type="checkbox" id="checkForm" value="">Mélanger </label>
+                                    <button class="btn btn-outline-info" onclick="openBoxNumber()">Options</button>
 
                                 </div>
                             </div>
                         </div>
                         <div class="card-body" id="cardBody"></div>
-                        <a href="#" class="btn btn-light" onclick="Launcher()" id="btnRepeat">génerer</a>
+
+
+                        <div class="footerDiv inline">
+                            <a href="#" class="btn btn-info w-25 my-1" onclick="launcher()" id="btnRepeat">Démarrer</a>
+                            <a href="#" class="btn btn-info disabled" onclick="launcher()" id="btnRepeatOne">Relancer</a>
+                            <a href="#" class="btn btn-dark disabled" onclick="quitPrg()" id="btnQuit">Quitter</a>
+                        </div>
 
                     </div>
 

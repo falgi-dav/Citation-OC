@@ -1,7 +1,7 @@
 
 // variables globales
 let myArray = [];
-let Numbrepeat = 1;
+let numbRepeat = 1;
 let element1 = null;
 let inputOption = null;
 let selectionmenu = null;
@@ -33,7 +33,7 @@ let endArray = ['il faut étudier','on se doit d\'examiner','il faut partir de t
     // reference a la bdd firestore
     var db = firebase.firestore();
 
-function RequestArrayBDD(name){
+function requestArrayBDD(name){
 
     //var docRef = db.collection("arthur").doc("extraits");
     // recuperation des citations
@@ -52,18 +52,22 @@ function RequestArrayBDD(name){
   function readID(that)
   {
       
-      selectionmenu = that.id;
+      selectionMenu = that.id;
       nameAutor = document.createElement('p');
       let titleCit = document.querySelector('#titleFooter');
       titleCit.style.fontSize = "24px";      
       titleCit.innerHTML = that.id;
       titleCit.appendChild = nameAutor;            
-      RequestArrayBDD(selectionmenu); // execution de récuperation de l'array de la selection du personnage
+      requestArrayBDD(selectionMenu); // execution de récuperation de l'array de la selection du personnage
 
   }
 
   
-  function Launcher(){
+  function launcher(){
+
+
+    activenumbRepeat()
+
     element = document.querySelector('#cardBody');     
    
     if(element1 == undefined){
@@ -77,18 +81,18 @@ function RequestArrayBDD(name){
     if(document.getElementById('checkForm').checked == true){
 
         // lancement du melange
-        RandomChoice(Numbrepeat);
+        randomChoice(numbRepeat);
         
     }else{
 
         
-        for (var i = 1; i <= Numbrepeat; i++) {
+        for (var i = 1; i <= numbRepeat; i++) {
             
             element1 = document.createElement("blockquote");
             element.appendChild(element1);
             element1.classList.add('blockCitation');
             // couleur des phrases aleatoire fonction
-            ColorChange();
+            colorChange();
             element1.innerHTML = i + '. ' + myArray.extrait[Math.floor(Math.random()*myArray.extrait.length)];
             //scroll vers les 3 phrases crees
             element1.scrollIntoView(true);           
@@ -98,7 +102,7 @@ function RequestArrayBDD(name){
   }
 
   // selection du nombre de citation
-  function OpenBoxNumber(){
+  function openBoxNumber(){
 
         let elemOption = document.querySelector('#blockAdmin');
         let element1 = document.getElementById('inputAdd');
@@ -113,7 +117,7 @@ function RequestArrayBDD(name){
 
         inputOption = document.createElement('input');        
         inputOption.type = "number";
-        inputOption.id = "inputAdd";        
+        inputOption.id = "inputAdd";     
         inputOption.max = "3";
         inputOption.min = "1";
         inputOption.value = "1";
@@ -122,18 +126,30 @@ function RequestArrayBDD(name){
         //recuperation de la saisie du formulaire
         var elemNumber = document.getElementById('inputAdd');
         // ecoute des changements du nombre de citations
-        elemNumber.addEventListener("click", function(){Numbrepeat = elemNumber.value}, false);        
+        elemNumber.addEventListener("change", function(){
+            
+            // controle de la saisie dans l'input option
+            if((elemNumber.value < 1) || (elemNumber.value > 3)){
+
+                alert('Le nombre de répetitions doit etre < 1 ou > 3 ! \n une valeur aléeatoir va etre renseigné');
+                elemNumber.value = '3';
+                numbRepeat = elemNumber.value;
+
+            }else{
+                numbRepeat = elemNumber.value
+            }
+        });        
         
 
   }
 
 // changement de la couleur du texte
-  function ColorChange(){
+  function colorChange(){
     element1.style.color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);   
   }
 
 // pour le mise random style pipotron
-  function RandomChoice(numberRepeat){
+  function randomChoice(numberRepeat){
 
     for (var i = 1; i <= numberRepeat; i++) {
 
@@ -153,9 +169,21 @@ function RequestArrayBDD(name){
     }
   }
 
+  // fonctionn activation des bouton de controle
+  function activenumbRepeat(){
+
+    $('#btnRepeatOne').removeClass("btn btn-info disabled").addClass("btn btn-info");
+    $('#btnQuit').removeClass("btn btn-info disabled").addClass("btn btn-info");
+    $('#btnRepeat').removeClass("btn btn-info").addClass("btn btn-info disabled");
+
+  }
+
+  // fonction pour quitter le programme
+  function quitPrg(){
+    $('#btnRepeat').removeClass("btn btn-info disabled").addClass("btn btn-info ");
+    $('#btnRepeatOne').removeClass("btn btn-info").addClass("btn btn-info  disabled");
+    $('#btnQuit').removeClass("btn btn-info").addClass("btn btn-info  disabled");
+  }
 
 
-
- 
-  
 
