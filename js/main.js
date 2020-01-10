@@ -8,15 +8,15 @@ let selectionmenu = null;
 
 
 
-// partie du code pour la fonction de melange uniquement
-let startArray = ['avec', 'tant que durera','considérant','quelle que','vu'];
+// partie du code pour la fonction de melange uniquement : mode pipotron
+let startArray = ['avec ca c\'est certain que', 'tant que durera action,','considérant que pour un fois','quelle que soit ','vu qu\' jour'];
 let middleArray = ['la situation','l\inertie','l\impasse'];
-let endArray = ['il faut étudier','on se doit d\'examiner','il faut partir de toute urgence'];
+let endArray = ['il faut étudier un solution','on se doit d\'examiner le résultat','il faut partir de toute urgence'];
 
 
 
 
-  // connexion a la bdd
+  // connexion a la bdd firebase
   const firebaseConfig = {
     apiKey: "AIzaSyDlQqhKqC6WCFsYDtGgUvZIZiqNqdC1h1A",
     authDomain: "citationkamelott.firebaseapp.com",
@@ -36,7 +36,7 @@ let endArray = ['il faut étudier','on se doit d\'examiner','il faut partir de t
 function requestArrayBDD(name){
 
     //var docRef = db.collection("arthur").doc("extraits");
-    // recuperation des citations
+    // recuperation des citations dans la collection
     db.collection(name).get().then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
             // doc.data()
@@ -65,7 +65,7 @@ function requestArrayBDD(name){
   
   function launcher(){
 
-
+    // fonction controle des boutons
     activenumbRepeat()
 
     element = document.querySelector('#cardBody');     
@@ -78,9 +78,10 @@ function requestArrayBDD(name){
         element1.remove();        
     }
 
+    // controle du checkbox pour le du mode de citation
     if(document.getElementById('checkForm').checked == true){
 
-        // lancement du melange
+        // lancement fonction du melange
         randomChoice(numbRepeat);
         
     }else{
@@ -91,7 +92,7 @@ function requestArrayBDD(name){
             element1 = document.createElement("blockquote");
             element.appendChild(element1);
             element1.classList.add('blockCitation');
-            // couleur des phrases aleatoire fonction
+            // couleur des phrases aleatoire
             colorChange();
             element1.innerHTML = i + '. ' + myArray.extrait[Math.floor(Math.random()*myArray.extrait.length)];
             //scroll vers les 3 phrases crees
@@ -125,6 +126,7 @@ function requestArrayBDD(name){
 
         //recuperation de la saisie du formulaire
         var elemNumber = document.getElementById('inputAdd');
+
         // ecoute des changements du nombre de citations
         elemNumber.addEventListener("change", function(){
             
@@ -169,7 +171,7 @@ function requestArrayBDD(name){
     }
   }
 
-  // fonctionn activation des bouton de controle
+  // fonctionn activation des boutons de controle
   function activenumbRepeat(){
 
     $('#btnRepeatOne').removeClass("btn btn-info disabled").addClass("btn btn-info");
